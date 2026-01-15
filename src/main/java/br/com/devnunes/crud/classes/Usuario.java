@@ -1,7 +1,7 @@
 package br.com.devnunes.crud.classes;
 
-import br.com.devnunes.crud.Exceptions.UsuarioEmailInvalido;
-import br.com.devnunes.crud.Exceptions.UsuarioNomeInvalido;
+import br.com.devnunes.crud.exceptions.UsuarioEmailInvalido;
+import br.com.devnunes.crud.exceptions.UsuarioNomeInvalido;
 
 import java.time.OffsetDateTime;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package br.com.devnunes.crud.Exceptions;
+package br.com.devnunes.crud.exceptions;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;

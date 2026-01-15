@@ -1,7 +1,9 @@
-package br.com.devnunes.crud.BancoDeDados;
+package br.com.devnunes.crud.bancodedados;
 
-import br.com.devnunes.crud.Exceptions.UsuarioExiste;
-import br.com.devnunes.crud.Exceptions.UsuarioNotFoundException;
+import br.com.devnunes.crud.exceptions.EmailCadastrado;
+import br.com.devnunes.crud.exceptions.IdCadastrado;
+import br.com.devnunes.crud.exceptions.UsuarioExiste;
+import br.com.devnunes.crud.exceptions.UsuarioNotFoundException;
 import br.com.devnunes.crud.classes.Usuario;
 
 import java.util.ArrayList;
@@ -13,13 +15,12 @@ public class BancoDeDados {
  private long nextId= 1L;
 
  public Usuario Save(final Usuario usuario){
-     if(UsuarioExiste(usuario)) {
-         throw new UsuarioExiste("Usuário " +usuario.getName()+ " já cadastrado!");
-     }
-     usuario.setId(nextId);
-     nextId += 1;
+     if (!idCadastrado(usuario)) throw new IdCadastrado("ID já cadastrado!");
+     if (!emailCadastrado(usuario)) throw new EmailCadastrado("Email já cadastrado!");
+     //usuario.setId(nextId);
+     //nextId += 1;
+     //Antes, trabalhei com ID dado pelo programador, e não pelo usuário!
      listaDeUsuarios.add(usuario);
-
      return usuario;
  }
  public Usuario Update(final long id){
@@ -49,5 +50,12 @@ public class BancoDeDados {
      return listaDeUsuarios.stream()
              .anyMatch(usuario -> usuario.getId() == usuarioDigitado.getId());
  }
+ public boolean idCadastrado(final Usuario usuarioDigitado){
+     return listaDeUsuarios.stream().noneMatch(usuario -> usuario.getId() == usuarioDigitado.getId());
+ }
+ public boolean emailCadastrado(final Usuario usuarioDigitado){
+        return listaDeUsuarios.stream().noneMatch(usuario -> usuario.getEmail().equalsIgnoreCase(usuarioDigitado.getEmail()));
+    }
+
 
 }

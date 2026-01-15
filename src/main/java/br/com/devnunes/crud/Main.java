@@ -1,7 +1,7 @@
 package br.com.devnunes.crud;
 
-import br.com.devnunes.crud.BancoDeDados.BancoDeDados;
-import br.com.devnunes.crud.Exceptions.UsuarioExceptions;
+import br.com.devnunes.crud.bancodedados.BancoDeDados;
+import br.com.devnunes.crud.exceptions.UsuarioExceptions;
 import br.com.devnunes.crud.classes.Option;
 import br.com.devnunes.crud.classes.Usuario;
 

@@ -1,4 +1,4 @@
-package br.com.devnunes.crud.Exceptions;
+package br.com.devnunes.crud.exceptions;
 
 public class UsuarioExiste extends UsuarioExceptions{
     public UsuarioExiste(String message) {
