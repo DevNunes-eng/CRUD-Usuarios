@@ -46,16 +46,22 @@ public class BancoDeDados {
  public List<Usuario> FindAll(){
      return listaDeUsuarios;
  }
- public boolean UsuarioExiste(Usuario usuarioDigitado){
+ private boolean UsuarioExiste(Usuario usuarioDigitado){
      return listaDeUsuarios.stream()
              .anyMatch(usuario -> usuario.getId() == usuarioDigitado.getId());
  }
- public boolean idCadastrado(final Usuario usuarioDigitado){
+ private boolean idCadastrado(final Usuario usuarioDigitado){
      return listaDeUsuarios.stream().noneMatch(usuario -> usuario.getId() == usuarioDigitado.getId());
  }
- public boolean emailCadastrado(final Usuario usuarioDigitado){
+ private boolean emailCadastrado(final Usuario usuarioDigitado){
         return listaDeUsuarios.stream().noneMatch(usuario -> usuario.getEmail().equalsIgnoreCase(usuarioDigitado.getEmail()));
     }
+ private void emailCadastrado2(final Usuario usuarioTeste){
+     if(!listaDeUsuarios.stream().noneMatch(usuario -> usuario.getEmail().equalsIgnoreCase(usuarioTeste.getEmail()))){
+         throw new RuntimeException("O emailCadastrado 2 funcionou..");
+         //Caso queira evitar retorno de true ou false, coloque no save!
+     }
+ }
 
 
 }

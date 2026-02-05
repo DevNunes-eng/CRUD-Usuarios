@@ -70,6 +70,7 @@ public class Main {
                     email,
                     birthday
             );
+
             banco.Save(usuario);
             System.out.println(String.format("Usuario %s adicionado com sucesso ao BancoDeDados!✅", usuario.getName()));
 

@@ -79,12 +79,12 @@ public class Usuario {
                 ", birthday=" + birthday +
                 '}';
     }
-    public void validarNome(String nome) {
+    private void validarNome(String nome) {
         if (nome == null || nome.isEmpty() || nome.length() < 3) {
             throw new UsuarioNomeInvalido("Nome inválido!");
         }
     }
-    public void validarEmail(String email){
+    private void validarEmail(String email){
         if(!email.contains("@") || !email.contains(".com") || email == null){
             throw new UsuarioEmailInvalido("Email inválido!");
         }
